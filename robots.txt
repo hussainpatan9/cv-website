@@ -2,7 +2,38 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://hussainkhuzema.github.io/sitemap.xml
+Sitemap: https://hussainpatan9.github.io/cv-website/sitemap.xml
 
-# Crawl-delay
-Crawl-delay: 1 
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Disallow admin or private areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+
+# Allow important files
+Allow: /*.html
+Allow: /*.css
+Allow: /*.js
+Allow: /*.xml
+Allow: /*.json
+Allow: /*.svg
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.ico 
