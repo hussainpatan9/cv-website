@@ -168,50 +168,72 @@ if (contactForm) {
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         submitBtn.disabled = true;
         
-        // Check if EmailJS is available
-        if (typeof emailjs !== 'undefined') {
-            // Send email using EmailJS
-            const templateParams = {
-                from_name: name,
-                from_email: email,
-                subject: subject,
-                message: message,
-                to_name: 'Hussain Khuzema'
-            };
+        // Check if EmailJS is available and properly configured
+        if (typeof emailjs !== 'undefined' && emailjs.init) {
+            try {
+                // Send email using EmailJS
+                const templateParams = {
+                    from_name: name,
+                    from_email: email,
+                    subject: subject,
+                    message: message,
+                    to_name: 'Hussain Khuzema'
+                };
 
-            // Send email using EmailJS
-            emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-                .then(function(response) {
-                    showNotification('Thank you for your message! I will get back to you soon.', 'success');
-                    
-                    // Reset form
-                    contactForm.reset();
-                    
-                    // Reset button
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                }, function(error) {
-                    showNotification('Sorry, there was an error sending your message. Please try again or contact me directly.', 'error');
-                    
-                    // Reset button
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                });
+                // Send email using EmailJS
+                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                    .then(function(response) {
+                        showNotification('Thank you for your message! I will get back to you soon.', 'success');
+                        
+                        // Reset form
+                        contactForm.reset();
+                        
+                        // Reset button
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }, function(error) {
+                        console.log('EmailJS error:', error);
+                        // Fallback to mailto if EmailJS fails
+                        sendViaMailto(name, email, subject, message);
+                        
+                        // Reset button
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    });
+            } catch (error) {
+                console.log('EmailJS configuration error:', error);
+                // Fallback to mailto if EmailJS is not configured
+                sendViaMailto(name, email, subject, message);
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
         } else {
-            // Fallback: Open email client with pre-filled data
-            const mailtoLink = `mailto:hussainpatan9@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-            window.open(mailtoLink);
-            
-            showNotification('Opening your email client. Please send the message manually.', 'info');
-            
-            // Reset form
-            contactForm.reset();
+            // EmailJS not available, use mailto fallback
+            sendViaMailto(name, email, subject, message);
             
             // Reset button
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
         }
     });
+}
+
+// Mailto fallback function
+function sendViaMailto(name, email, subject, message) {
+    const mailtoLink = `mailto:hussainpatan9@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+    
+    try {
+        window.open(mailtoLink);
+        showNotification('✅ Email client opened! Please send the message manually.', 'success');
+    } catch (error) {
+        // If mailto fails, show contact information
+        showNotification('📧 Please contact me directly at hussainpatan9@gmail.com', 'info');
+    }
+    
+    // Reset form
+    contactForm.reset();
 }
 
 // Notification system
