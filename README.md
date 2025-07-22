@@ -199,7 +199,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **LinkedIn**: [Hussain Khuzema](https://linkedin.com/in/hussainkhuzema)
 - **GitHub**: [hussainpatan9](https://github.com/hussainpatan9)
 - **Fiverr**: [hussainpatan](https://www.fiverr.com/hussainpatan)
-- **Email**: [Your Email]
+- **Email**: [hussainkhuzema99@gmail.com](mailto:hussainkhuzema99@gmail.com)
 
 ---
 

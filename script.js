@@ -141,82 +141,23 @@ const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(this);
-        const name = formData.get('name');
-        const email = formData.get('email');
-        const subject = formData.get('subject');
-        const message = formData.get('message');
-        
-        // Simple validation
-        if (!name || !email || !subject || !message) {
-            showNotification('Please fill in all fields', 'error');
-            return;
-        }
-        
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            showNotification('Please enter a valid email address', 'error');
-            return;
-        }
-        
-        // Show loading state
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitBtn.disabled = true;
-        
-        // Check if EmailJS is available and properly configured
-        if (typeof emailjs !== 'undefined' && emailjs.init) {
-            try {
-                // Send email using EmailJS
-                const templateParams = {
-                    from_name: name,
-                    from_email: email,
-                    subject: subject,
-                    message: message,
-                    to_name: 'Hussain Khuzema'
-                };
 
-                // Send email using EmailJS
-                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-                    .then(function(response) {
-                        showNotification('Thank you for your message! I will get back to you soon.', 'success');
-                        
-                        // Reset form
-                        contactForm.reset();
-                        
-                        // Reset button
-                        submitBtn.innerHTML = originalText;
-                        submitBtn.disabled = false;
-                    }, function(error) {
-                        console.log('EmailJS error:', error);
-                        // Fallback to mailto if EmailJS fails
-                        sendViaMailto(name, email, subject, message);
-                        
-                        // Reset button
-                        submitBtn.innerHTML = originalText;
-                        submitBtn.disabled = false;
-                    });
-            } catch (error) {
-                console.log('EmailJS configuration error:', error);
-                // Fallback to mailto if EmailJS is not configured
-                sendViaMailto(name, email, subject, message);
-                
-                // Reset button
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }
-        } else {
-            // EmailJS not available, use mailto fallback
-            sendViaMailto(name, email, subject, message);
-            
-            // Reset button
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        }
+        // Collect form data
+        const formData = {
+            name: contactForm.elements['name'].value,
+            email: contactForm.elements['email'].value,
+            message: contactForm.elements['message'].value,
+            time: new Date().toLocaleString()
+        };
+
+        // Send email using EmailJS
+        emailjs.send('service_udg8lv9', 'template_57l5tu3', formData)
+            .then(function(response) {
+                alert('Message sent successfully!');
+                contactForm.reset();
+            }, function(error) {
+                alert('Failed to send message. Please try again later.');
+            });
     });
 }
 
@@ -236,14 +177,21 @@ function sendViaMailto(name, email, subject, message) {
     contactForm.reset();
 }
 
-// Notification system
+// Add aria-live region for notifications
+// At the top of the script, after DOMContentLoaded or before notification functions:
+if (!document.getElementById('notification-container')) {
+    const notificationContainer = document.createElement('div');
+    notificationContainer.id = 'notification-container';
+    notificationContainer.setAttribute('aria-live', 'polite');
+    notificationContainer.setAttribute('aria-atomic', 'true');
+    document.body.appendChild(notificationContainer);
+}
+
+// Update showNotification to use the notification container
 function showNotification(message, type = 'info') {
+    const notificationContainer = document.getElementById('notification-container');
     // Remove existing notifications
-    const existingNotification = document.querySelector('.notification');
-    if (existingNotification) {
-        existingNotification.remove();
-    }
-    
+    notificationContainer.innerHTML = '';
     // Create notification element
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
@@ -253,43 +201,28 @@ function showNotification(message, type = 'info') {
             <button class="notification-close" aria-label="Close notification">&times;</button>
         </div>
     `;
-    
     // Add styles
     notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
         background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#3b82f6'};
         color: white;
         padding: 1rem 1.5rem;
         border-radius: 10px;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        z-index: 10000;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
         max-width: 400px;
+        margin: 20px auto;
+        position: relative;
     `;
-    
-    // Add to page
-    document.body.appendChild(notification);
-    
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
+    // Add to container
+    notificationContainer.appendChild(notification);
     // Close button functionality
     const closeBtn = notification.querySelector('.notification-close');
     closeBtn.addEventListener('click', () => {
-        notification.style.transform = 'translateX(100%)';
-        setTimeout(() => notification.remove(), 300);
+        notification.remove();
     });
-    
     // Auto remove after 5 seconds
     setTimeout(() => {
         if (notification.parentNode) {
-            notification.style.transform = 'translateX(100%)';
-            setTimeout(() => notification.remove(), 300);
+            notification.remove();
         }
     }, 5000);
 }
