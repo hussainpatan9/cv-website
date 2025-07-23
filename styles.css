@@ -983,8 +983,8 @@ section {
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-.form-group input:invalid,
-.form-group textarea:invalid {
+.form-group input:invalid:not(:placeholder-shown),
+.form-group textarea:invalid:not(:placeholder-shown) {
     border-color: #ef4444;
 }
 
