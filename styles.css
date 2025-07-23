@@ -2132,10 +2132,25 @@ section.visible, .services-list.visible, .testimonials-grid.visible, .projects-g
     }
 }
 
-/* Hero Stat Number Contrast */
+/* Hero Stat Number Contrast - Improved with background circle */
 .stat-number {
+    position: relative;
     color: #fff !important;
-    text-shadow: 0 2px 8px rgba(37,99,235,0.15);
+    text-shadow: 0 2px 8px rgba(37,99,235,0.25), 0 0 6px #222, 0 1px 0 #000;
+    z-index: 1;
+    font-size: 2.2rem;
+    font-weight: 800;
+}
+.stat-number::before {
+    content: '';
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    width: 2.5em; height: 2.5em;
+    background: rgba(30, 41, 59, 0.45);
+    border-radius: 50%;
+    filter: blur(2px);
+    z-index: -1;
 }
 
 /* Hero Tagline Contrast */
