@@ -137,20 +137,57 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Contact form handling
+// Enhanced form validation with error messages
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
         // Collect form data
-        const formData = {
-            name: contactForm.elements['name'].value,
-            email: contactForm.elements['email'].value,
-            message: contactForm.elements['message'].value,
-            time: new Date().toLocaleString()
-        };
+        const name = contactForm.elements['name'].value.trim();
+        const email = contactForm.elements['email'].value.trim();
+        const subject = contactForm.elements['subject'].value.trim();
+        const message = contactForm.elements['message'].value.trim();
+        let valid = true;
+
+        // Clear previous errors
+        ['name','email','subject','message'].forEach(id => {
+            document.getElementById('error-' + id).textContent = '';
+        });
+
+        // Name validation
+        if (!name) {
+            document.getElementById('error-name').textContent = 'Please enter your name.';
+            valid = false;
+        }
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email) {
+            document.getElementById('error-email').textContent = 'Please enter your email.';
+            valid = false;
+        } else if (!emailRegex.test(email)) {
+            document.getElementById('error-email').textContent = 'Please enter a valid email address.';
+            valid = false;
+        }
+        // Subject validation
+        if (!subject) {
+            document.getElementById('error-subject').textContent = 'Please enter a subject.';
+            valid = false;
+        }
+        // Message validation
+        if (!message) {
+            document.getElementById('error-message').textContent = 'Please enter your message.';
+            valid = false;
+        }
+        if (!valid) return;
 
         // Send email using EmailJS
+        const formData = {
+            name,
+            email,
+            message,
+            time: new Date().toLocaleString()
+        };
         emailjs.send('service_udg8lv9', 'template_57l5tu3', formData)
             .then(function(response) {
                 alert('Message sent successfully!');
@@ -158,6 +195,13 @@ if (contactForm) {
             }, function(error) {
                 alert('Failed to send message. Please try again later.');
             });
+    });
+
+    // Clear error on input
+    ['name','email','subject','message'].forEach(id => {
+        contactForm.elements[id].addEventListener('input', function() {
+            document.getElementById('error-' + id).textContent = '';
+        });
     });
 }
 
