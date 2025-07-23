@@ -2020,3 +2020,84 @@ section {
         max-width: 100%;
     }
 }
+
+/* Hero Tagline */
+.hero-tagline {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #e0e7ef;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 8px rgba(37,99,235,0.08);
+}
+
+/* Learn More Link */
+.learn-more-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: underline;
+    font-size: 0.98rem;
+    transition: color 0.2s;
+}
+.learn-more-link:hover {
+    color: #1d4ed8;
+}
+
+/* Service Icon Hover */
+.service-card i {
+    transition: color 0.3s, transform 0.3s;
+}
+.service-card:hover i {
+    color: #1d4ed8;
+    transform: scale(1.15) rotate(-6deg);
+}
+
+/* Client Avatar in Testimonials */
+.client-avatar {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, #2563eb 60%, #667eea 100%);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    margin-right: 0.7rem;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.10);
+    float: left;
+}
+
+/* Back to Top Footer Link */
+.back-to-top-footer {
+    display: inline-block;
+    margin-top: 1.2rem;
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+.back-to-top-footer:hover {
+    color: #fff;
+    background: #2563eb;
+    border-radius: 12px;
+    padding: 2px 10px;
+}
+
+/* Section Fade-in Animation */
+section, .services-list, .testimonials-grid, .projects-grid {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+}
+section.visible, .services-list.visible, .testimonials-grid.visible, .projects-grid.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Copyright Year Script (no CSS needed) */

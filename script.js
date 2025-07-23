@@ -621,3 +621,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Section fade-in animation on scroll
+function revealSectionsOnScroll() {
+  const sections = document.querySelectorAll('section, .services-list, .testimonials-grid, .projects-grid');
+  const windowHeight = window.innerHeight;
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    if (sectionTop < windowHeight - 80) {
+      section.classList.add('visible');
+    }
+  });
+}
+window.addEventListener('scroll', revealSectionsOnScroll);
+document.addEventListener('DOMContentLoaded', revealSectionsOnScroll);
+
+// Copyright year auto-update
+const copyrightYear = document.getElementById('copyright-year');
+if (copyrightYear) {
+  copyrightYear.textContent = new Date().getFullYear();
+}
