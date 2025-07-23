@@ -2101,3 +2101,33 @@ section.visible, .services-list.visible, .testimonials-grid.visible, .projects-g
 }
 
 /* Copyright Year Script (no CSS needed) */
+
+/* Social Button Shadow and Hover */
+.social-btn {
+    box-shadow: 0 2px 10px rgba(37,99,235,0.10);
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.social-btn:hover {
+    box-shadow: 0 6px 20px rgba(37,99,235,0.18);
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Mobile Spacing for Contact Section */
+@media (max-width: 700px) {
+    .contact-section .contact-content {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+    .contact-section .contact-info {
+        margin-bottom: 2rem;
+    }
+    .contact-section .social-links {
+        margin-top: 1.5rem;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .contact-section .contact-form {
+        margin-top: 1.5rem;
+    }
+}
