@@ -2131,3 +2131,27 @@ section.visible, .services-list.visible, .testimonials-grid.visible, .projects-g
         margin-top: 1.5rem;
     }
 }
+
+/* Hero Stat Number Contrast */
+.stat-number {
+    color: #fff !important;
+    text-shadow: 0 2px 8px rgba(37,99,235,0.15);
+}
+
+/* Hero Tagline Contrast */
+.hero-tagline {
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(37,99,235,0.18);
+}
+
+/* Social Icon Contrast in Profile Card */
+.social-link-hero {
+    background: rgba(37,99,235,0.12);
+    box-shadow: 0 2px 8px rgba(37,99,235,0.10);
+    color: #fff;
+}
+.social-link-hero:hover {
+    background: #2563eb;
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(37,99,235,0.18);
+}
