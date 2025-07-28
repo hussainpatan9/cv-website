@@ -10,20 +10,34 @@ Crawl-delay: 1
 # Allow all search engines
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
+Crawl-delay: 1
 
 User-agent: DuckDuckBot
 Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 1
 
 # Disallow admin or private areas (if any)
 Disallow: /admin/
 Disallow: /private/
 Disallow: /temp/
+Disallow: /backup/
+Disallow: /logs/
 
 # Allow important files
 Allow: /*.html
@@ -36,4 +50,17 @@ Allow: /*.png
 Allow: /*.jpg
 Allow: /*.jpeg
 Allow: /*.gif
-Allow: /*.ico 
+Allow: /*.ico
+Allow: /*.pdf
+
+# Allow specific directories
+Allow: /assets/
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+# Block unnecessary files
+Disallow: /*.log
+Disallow: /*.tmp
+Disallow: /*.bak
+Disallow: /*.old 

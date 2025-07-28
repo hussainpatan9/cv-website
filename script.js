@@ -1,12 +1,4 @@
-// Loading Screen Management
-const loadingScreen = document.getElementById('loading-screen');
 
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        loadingScreen.classList.add('hidden');
-        document.body.classList.add('loaded');
-    }, 1500);
-});
 
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
@@ -524,7 +516,7 @@ document.addEventListener('DOMContentLoaded', addPrintButton);
 const printStyle = document.createElement('style');
 printStyle.textContent = `
     @media print {
-        .navbar, .hamburger, .back-to-top, .print-btn, .loading-screen {
+        .navbar, .hamburger, .back-to-top, .print-btn {
             display: none !important;
         }
         

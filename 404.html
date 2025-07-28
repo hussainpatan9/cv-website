@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Not Found - Hussain Khuzema</title>
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -67,9 +72,59 @@
             background: var(--primary-color);
             color: white;
         }
+        .simple-nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        .simple-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .simple-nav h2 {
+            color: var(--primary-color);
+            margin: 0;
+        }
+        .simple-nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .simple-nav a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
+    <!-- Simple Navigation -->
+    <nav class="simple-nav">
+        <div class="container">
+            <h2>HK</h2>
+            <a href="hero.html">Go Home</a>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb Navigation for SEO -->
+    <nav aria-label="Breadcrumb" class="breadcrumb-nav">
+        <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <a href="hero.html" itemprop="item">
+                    <span itemprop="name">Home</span>
+                </a>
+                <meta itemprop="position" content="1" />
+            </li>
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                <span itemprop="name">Page Not Found</span>
+                <meta itemprop="position" content="2" />
+            </li>
+        </ol>
+    </nav>
+
     <div class="error-container">
         <div class="error-content">
             <h1 class="error-code">404</h1>
@@ -79,14 +134,24 @@
                 It might have been moved, deleted, or you entered the wrong URL.
             </p>
             <div class="error-actions">
-                <a href="/" class="btn-home">
+                <a href="hero.html" class="btn-home">
                     <i class="fas fa-home"></i> Go Home
                 </a>
-                <a href="/#contact" class="btn-contact">
+                <a href="contact.html" class="btn-contact">
                     <i class="fas fa-envelope"></i> Contact Me
                 </a>
             </div>
         </div>
     </div>
+    
+    <!-- EmailJS for contact form functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            // Initialize EmailJS with your public key
+            emailjs.init("aPw2GHhA0bjdTBVyz");
+        })();
+    </script>
+    <script src="script.js"></script>
 </body>
 </html> 
