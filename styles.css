@@ -792,6 +792,29 @@ section {
     font-weight: 500;
 }
 
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.project-links .btn {
+    flex: 1;
+    min-width: 120px;
+    justify-content: center;
+}
+
+@media (max-width: 480px) {
+    .project-links {
+        flex-direction: column;
+    }
+    
+    .project-links .btn {
+        width: 100%;
+    }
+}
+
 /* Contact Section */
 .contact {
     background: #f8f9fa;
