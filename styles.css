@@ -2170,3 +2170,50 @@ section.visible, .services-list.visible, .testimonials-grid.visible, .projects-g
 .footer-section a[href^="mailto"]:hover {
     color: #2563eb;
 }
+
+/* Project Card Improvements */
+.project-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-header {
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.project-header h3 {
+    flex: 1;
+    min-width: 0;
+}
+
+.project-header h3 i {
+    flex-shrink: 0;
+}
+
+.project-type {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.project-links {
+    margin-top: auto;
+    padding-top: 1.5rem;
+}
+
+/* Single button styling for better visual balance */
+.project-links:has(.btn:only-child) .btn {
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+.project-links:has(.btn:only-child) {
+    justify-content: center;
+}
+
+@media (max-width: 480px) {
+    .project-links:has(.btn:only-child) .btn {
+        max-width: 100%;
+    }
+}
