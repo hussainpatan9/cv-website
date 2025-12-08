@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Free QA Checklist — Reduce Regression Risk | Hussain Khuzema</title>
+  <meta name="description" content="Download a free QA checklist for test automation and manual testing. Practical steps to reduce release risk, improve coverage, and integrate with CI/CD.">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="canonical" href="https://hussainpatan9.github.io/cv-website/qa-checklist.html">
+  <meta name="robots" content="index, follow">
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <div class="nav-logo"><h2>HK</h2></div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link">Full CV</a></li>
+        <li><a href="services.html" class="nav-link">Services</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+    </div>
+  </nav>
+
+  <main style="padding:60px 0;">
+    <div class="container">
+      <h1>Free QA Checklist</h1>
+      <p>Use this concise checklist to validate your QA and automation readiness before release. Print or save as PDF.</p>
+
+      <section style="background:#fff;padding:1.5rem;border-radius:10px;margin-top:1rem;">
+        <ol>
+          <li>Define critical user journeys and identify regression risks.</li>
+          <li>Prioritise test cases by impact and frequency.</li>
+          <li>Automate high-value, repeatable tests (smoke, regression).</li>
+          <li>Ensure tests run in CI on pull requests and nightly builds.</li>
+          <li>Include API contract tests and response validation.</li>
+          <li>Check cross-browser rendering for supported browsers.</li>
+          <li>Validate mobile flows and responsive layouts.</li>
+          <li>Collect and review test reports — make failures actionable.</li>
+          <li>Keep test data and environment configuration version-controlled.</li>
+          <li>Schedule regular maintenance to remove flaky tests.</li>
+        </ol>
+        <div style="display:flex;gap:1rem;margin-top:1rem;">
+          <button onclick="window.print();" class="btn btn-outline">Print / Save as PDF</button>
+          <a href="contact.html?utm_source=qa_checklist&utm_medium=download" class="btn btn-primary">Discuss this checklist</a>
+        </div>
+      </section>
+
+      <aside style="margin-top:2rem;background:#f8f9fa;padding:1rem;border-radius:8px;">
+        <h3>Want help implementing this?</h3>
+        <p>I can audit your CI and automation, implement a framework, and onboard your team. <a href="contact.html">Contact me</a> or <a href="https://calendly.com/your-username">book a call</a>.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="copyright-year"></span> Hussain Khuzema</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
