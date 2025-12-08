@@ -41,7 +41,7 @@
         "@type": "Person",
         "name": "Hussain Khuzema",
         "jobTitle": "Software Test Analyst & QA Automation Engineer",
-        "email": "hussainpatan9@gmail.com",
+        "email": "hussainkhuzema99@gmail.com",
         "url": "https://hussainpatan9.github.io/cv-website/",
         "sameAs": [
           "https://www.linkedin.com/in/hussainkhuzema",
@@ -52,7 +52,7 @@
           "@type": "ContactPoint",
           "contactType": "professional",
           "availableLanguage": ["English"],
-          "email": "hussainpatan9@gmail.com"
+            "email": "hussainkhuzema99@gmail.com"
         }
       },
       "url": "https://hussainpatan9.github.io/cv-website/contact.html"
@@ -117,7 +117,7 @@
         "contactPoint": {
             "@type": "ContactPoint",
             "contactType": "customer service",
-            "email": "hussainpatan9@gmail.com",
+            "email": "hussainkhuzema99@gmail.com",
             "availableLanguage": "English",
             "areaServed": "Worldwide"
         }
@@ -135,7 +135,7 @@
         "mainEntity": {
             "@type": "Person",
             "name": "Hussain Khuzema",
-            "email": "hussainpatan9@gmail.com",
+            "email": "hussainkhuzema99@gmail.com",
             "telephone": "+1-234-567-8900",
             "address": {
                 "@type": "PostalAddress",
@@ -156,7 +156,7 @@
                 "name": "How can I contact Hussain Khuzema?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "You can contact Hussain via email at hussainpatan9@gmail.com, through LinkedIn, or by hiring him on Fiverr for freelance projects."
+                    "text": "You can contact Hussain via email at hussainkhuzema99@gmail.com, through LinkedIn, or by hiring him on Fiverr for freelance projects."
                 }
             },
             {
@@ -359,6 +359,12 @@
                             <textarea id="message" name="message" placeholder="Your Message" rows="5" required aria-required="true"></textarea>
                             <small class="error-message" id="error-message"></small>
                         </div>
+                        <!-- Honeypot field (hidden) and timestamp to reduce spam -->
+                        <div style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;" aria-hidden="true">
+                            <label for="hp_field">Leave this field empty</label>
+                            <input type="text" id="hp_field" name="hp_field" autocomplete="off" tabindex="-1">
+                        </div>
+                        <input type="hidden" id="form_ts" name="form_ts" value="">
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-paper-plane"></i>
                             Send Message
@@ -502,6 +508,19 @@
             // Initialize EmailJS with your public key
             emailjs.init("aPw2GHhA0bjdTBVyz");
         })();
+    </script>
+    <!-- Configuration: set a static relay URL (Formspree/Getform) or leave empty to use mailto fallback -->
+    <script>
+        // Example: set to 'https://formspree.io/f/your-id' or 'https://getform.io/f/your-id'
+        window.CONTACT_RELAY_URL = window.CONTACT_RELAY_URL || '';
+
+        // Populate form timestamp for simple bot-detection
+        document.addEventListener('DOMContentLoaded', function () {
+            try {
+                var tsInput = document.getElementById('form_ts');
+                if (tsInput) tsInput.value = Date.now();
+            } catch (e) { /* ignore */ }
+        });
     </script>
     <script src="script.js"></script>
 </body>

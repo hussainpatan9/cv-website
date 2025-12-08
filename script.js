@@ -1,44 +1,46 @@
 
 
-// Mobile Navigation Toggle
+// Mobile Navigation Toggle (safe guards added)
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    
-    // Update ARIA attributes
-    const isExpanded = hamburger.classList.contains('active');
-    hamburger.setAttribute('aria-expanded', isExpanded);
-    
-    // Animate hamburger bars
-    const bars = hamburger.querySelectorAll('.bar');
-    bars.forEach((bar, index) => {
-        if (isExpanded) {
-            if (index === 0) bar.style.transform = 'rotate(45deg) translate(5px, 5px)';
-            if (index === 1) bar.style.opacity = '0';
-            if (index === 2) bar.style.transform = 'rotate(-45deg) translate(7px, -6px)';
-        } else {
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        
+        // Update ARIA attributes
+        const isExpanded = hamburger.classList.contains('active');
+        hamburger.setAttribute('aria-expanded', isExpanded);
+        
+        // Animate hamburger bars if present
+        const bars = hamburger.querySelectorAll('.bar');
+        bars.forEach((bar, index) => {
+            if (isExpanded) {
+                if (index === 0) bar.style.transform = 'rotate(45deg) translate(5px, 5px)';
+                if (index === 1) bar.style.opacity = '0';
+                if (index === 2) bar.style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                bar.style.transform = 'none';
+                bar.style.opacity = '1';
+            }
+        });
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        
+        // Reset hamburger bars
+        const bars = hamburger.querySelectorAll('.bar');
+        bars.forEach(bar => {
             bar.style.transform = 'none';
             bar.style.opacity = '1';
-        }
-    });
-});
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navMenu.classList.remove('active');
-    hamburger.setAttribute('aria-expanded', 'false');
-    
-    // Reset hamburger bars
-    const bars = hamburger.querySelectorAll('.bar');
-    bars.forEach(bar => {
-        bar.style.transform = 'none';
-        bar.style.opacity = '1';
-    });
-}));
+        });
+    }));
+}
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -135,6 +137,24 @@ if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
+        // Simple spam protections: honeypot and timestamp
+        const honeypotValue = contactForm.elements['hp_field'] ? (contactForm.elements['hp_field'].value || '').trim() : '';
+        const tsValue = contactForm.elements['form_ts'] ? (contactForm.elements['form_ts'].value || '') : '';
+        if (honeypotValue) {
+            showNotification('Spam detected. If you are human, please clear the form and try again.', 'error');
+            return;
+        }
+        if (tsValue) {
+            try {
+                const elapsed = Date.now() - Number(tsValue);
+                // If form submitted too quickly (e.g. within 3s), likely a bot
+                if (elapsed < 3000) {
+                    showNotification('Please take a few seconds to complete the form.', 'error');
+                    return;
+                }
+            } catch (e) { /* ignore parse errors */ }
+        }
+
         // Collect form data
         const name = contactForm.elements['name'].value.trim();
         const email = contactForm.elements['email'].value.trim();
@@ -142,9 +162,10 @@ if (contactForm) {
         const message = contactForm.elements['message'].value.trim();
         let valid = true;
 
-        // Clear previous errors
+        // Clear previous errors (defensive)
         ['name','email','subject','message'].forEach(id => {
-            document.getElementById('error-' + id).textContent = '';
+            const el = document.getElementById('error-' + id);
+            if (el) el.textContent = '';
         });
 
         // Name validation
@@ -182,35 +203,87 @@ if (contactForm) {
         };
         emailjs.send('service_udg8lv9', 'template_57l5tu3', formData)
             .then(function(response) {
-                alert('Message sent successfully!');
+                // Use accessible notification instead of alert
+                showNotification('Message sent successfully! I will respond within 24-48 hours.', 'success');
+                // Track conversion in GA if available
+                if (typeof gtag === 'function') {
+                    try { gtag('event', 'form_submission', { 'event_category': 'contact', 'method': 'emailjs' }); } catch(e){}
+                }
                 contactForm.reset();
             }, function(error) {
-                alert('Failed to send message. Please try again later.');
+                // EmailJS failed — attempt server-side fallback
+                showNotification('Primary delivery failed, attempting secure fallback...', 'info');
+                if (typeof gtag === 'function') {
+                    try { gtag('event', 'form_submission_error', { 'event_category': 'contact', 'method': 'emailjs' }); } catch(e){}
+                }
+
+                // Prepare payload for relay
+                const payload = {
+                    name,
+                    email,
+                    subject,
+                    message,
+                    source: 'client_fallback_emailjs',
+                    time: new Date().toISOString()
+                };
+
+                // Use a configurable static relay endpoint (for GitHub Pages compatible providers like Formspree/Getform)
+                const relayUrl = (window.CONTACT_RELAY_URL && window.CONTACT_RELAY_URL.trim()) ? window.CONTACT_RELAY_URL.trim() : null;
+
+                if (!relayUrl) {
+                    // No static relay configured — inform user and provide email
+                    showNotification('All delivery methods failed. Please email directly: hussainkhuzema99@gmail.com', 'error');
+                    return;
+                }
+
+                // Try POSTing to the configured relay (CORS-enabled provider required)
+                fetch(relayUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                }).then(res => {
+                    if (res.ok) return res.json().catch(() => ({}));
+                    throw new Error('Fallback relay failed');
+                }).then(data => {
+                    showNotification('Message sent via secure relay. Thank you!', 'success');
+                    if (typeof gtag === 'function') {
+                        try { gtag('event', 'form_submission', { 'event_category': 'contact', 'method': 'static_relay' }); } catch(e){}
+                    }
+                    contactForm.reset();
+                }).catch(err => {
+                    showNotification('Fallback relay failed. Please email directly: hussainkhuzema99@gmail.com', 'error');
+                });
             });
     });
 
     // Clear error on input
     ['name','email','subject','message'].forEach(id => {
-        contactForm.elements[id].addEventListener('input', function() {
-            document.getElementById('error-' + id).textContent = '';
-        });
+        const input = contactForm.elements[id];
+        if (input) {
+            input.addEventListener('input', function() {
+                const el = document.getElementById('error-' + id);
+                if (el) el.textContent = '';
+            });
+        }
     });
 }
 
 // Mailto fallback function
 function sendViaMailto(name, email, subject, message) {
-    const mailtoLink = `mailto:hussainpatan9@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+    // Canonical contact email used across site
+    const canonicalEmail = 'hussainkhuzema99@gmail.com';
+    const mailtoLink = `mailto:${canonicalEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
     
     try {
         window.open(mailtoLink);
         showNotification('✅ Email client opened! Please send the message manually.', 'success');
     } catch (error) {
         // If mailto fails, show contact information
-        showNotification('📧 Please contact me directly at hussainpatan9@gmail.com', 'info');
+        showNotification(`📧 Please contact me directly at ${canonicalEmail}`, 'info');
     }
     
-    // Reset form
-    contactForm.reset();
+    // Reset form (if present)
+    if (contactForm) contactForm.reset();
 }
 
 // Add aria-live region for notifications
@@ -423,7 +496,11 @@ document.head.appendChild(loadingStyle);
 
 // Back to top button
 function createBackToTopButton() {
+    // Avoid creating if already present in HTML
+    if (document.getElementById('back-to-top')) return;
+
     const backToTop = document.createElement('button');
+    backToTop.id = 'back-to-top';
     backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
     backToTop.className = 'back-to-top';
     backToTop.setAttribute('aria-label', 'Back to top');
@@ -677,3 +754,50 @@ const copyrightYear = document.getElementById('copyright-year');
 if (copyrightYear) {
   copyrightYear.textContent = new Date().getFullYear();
 }
+
+// Floating Hire Me CTA (site-wide)
+function createFloatingCTA() {
+    if (document.getElementById('floating-hire-me')) return;
+
+    const a = document.createElement('a');
+    a.id = 'floating-hire-me';
+    // UTM parameters to track source
+    a.href = 'contact.html?utm_source=site&utm_medium=cta&utm_campaign=hire_me';
+    a.className = 'floating-hire-me';
+    a.innerHTML = '<span class="hire-text">Hire Me</span>';
+    a.setAttribute('aria-label', 'Hire me — contact');
+    a.target = '_self';
+
+    // Styles (minimal, inline to ensure present on all pages)
+    a.style.cssText = `
+        position: fixed;
+        right: 20px;
+        bottom: 80px;
+        background: #ff7a59;
+        color: white;
+        padding: 12px 16px;
+        border-radius: 999px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        z-index: 9999;
+        font-weight: 700;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    `;
+
+    document.body.appendChild(a);
+
+    // Add small pulse animation via style tag if not already present
+    if (!document.getElementById('floating-hire-me-style')) {
+        const s = document.createElement('style');
+        s.id = 'floating-hire-me-style';
+        s.textContent = `
+            .floating-hire-me:hover { transform: translateY(-4px) scale(1.02); }
+            .floating-hire-me:active { transform: translateY(0); }
+        `;
+        document.head.appendChild(s);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', createFloatingCTA);
