@@ -399,6 +399,37 @@ document.head.appendChild(style);
 // Scroll event listener for timeline
 window.addEventListener('scroll', animateTimeline);
 
+// Auto-set active nav link and aria-current for accessibility
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        let currentFile = window.location.pathname.split('/').pop();
+        if (!currentFile) currentFile = 'index.html';
+
+        navLinks.forEach(link => {
+            // Remove previous markers
+            link.removeAttribute('aria-current');
+            link.classList.remove('active');
+
+            const href = link.getAttribute('href') || '';
+            // Normalize: compare last path segment
+            const linkFile = href.split('/').pop();
+
+            // Match if href equals currentFile, or if full URL contains href, or if href is '#...' and location has that hash
+            const isHash = href.startsWith('#') && window.location.hash === href;
+            const isMatch = (linkFile && linkFile === currentFile) || (href && window.location.href.indexOf(href) !== -1) || isHash;
+
+            if (isMatch) {
+                link.setAttribute('aria-current', 'page');
+                link.classList.add('active');
+            }
+        });
+    } catch (e) {
+        // fail gracefully
+        console.warn('Nav active-set failed', e);
+    }
+});
+
 // Typing effect for hero title
 function typeWriter(element, text, speed = 100) {
     let i = 0;
