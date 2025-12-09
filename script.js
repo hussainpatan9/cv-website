@@ -801,3 +801,50 @@ function createFloatingCTA() {
 }
 
 document.addEventListener('DOMContentLoaded', createFloatingCTA);
+
+// Accessible 'More' dropdown toggle for the header
+function initHeaderDropdown() {
+    const dropdownToggle = document.querySelector('.nav-more-toggle');
+    const dropdownMenu = document.querySelector('.nav-more-menu');
+
+    if (!dropdownToggle || !dropdownMenu) return;
+
+    dropdownToggle.addEventListener('click', (e) => {
+        const expanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+        dropdownToggle.setAttribute('aria-expanded', String(!expanded));
+        dropdownMenu.classList.toggle('show', !expanded);
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+        if (!dropdownMenu.classList.contains('show')) return;
+        if (!dropdownMenu.contains(e.target) && !dropdownToggle.contains(e.target)) {
+            dropdownMenu.classList.remove('show');
+            dropdownToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            dropdownMenu.classList.remove('show');
+            dropdownToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', initHeaderDropdown);
+
+// Minimal dropdown styles to ensure visibility without editing CSS file
+if (!document.getElementById('nav-more-style')) {
+    const navMoreStyle = document.createElement('style');
+    navMoreStyle.id = 'nav-more-style';
+    navMoreStyle.textContent = `
+    .nav-more { position: relative; }
+    .nav-more-menu { display: none; position: absolute; right: 0; top: 100%; background: white; border-radius: 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); min-width: 220px; z-index: 9999; padding: 0.5rem 0; }
+    .nav-more-menu.show { display: block; }
+    .nav-more-menu a { display: block; padding: 0.5rem 1rem; color: #111827; text-decoration: none; }
+    .nav-more-menu a:hover { background: #f3f4f6; }
+    `;
+    document.head.appendChild(navMoreStyle);
+}

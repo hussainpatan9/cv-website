@@ -94,6 +94,15 @@ body {
     width: 100%;
 }
 
+/* More dropdown */
+.nav-more { position: relative; }
+.nav-more-toggle { background: transparent; border: none; color: inherit; cursor: pointer; padding: 6px 8px; font-weight:500; }
+.nav-more-menu { display: none; position: absolute; right: 0; background: #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.08); border-radius: 6px; padding: 8px 0; min-width: 160px; z-index: 60; }
+.nav-more-menu.visible { display: block; }
+.nav-more-menu li { list-style: none; }
+.nav-more-menu li a { display: block; padding: 8px 12px; color: #333; text-decoration: none; }
+.nav-more-menu li a:hover { background: rgba(0,0,0,0.04); }
+
 .hamburger {
     display: none;
     flex-direction: column;
