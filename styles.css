@@ -1,4 +1,71 @@
-/* Reset and Base Styles */
+/* ===== CSS Custom Properties ===== */
+:root {
+    /* Primary Colors */
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #3b82f6;
+    --primary-glow: rgba(37, 99, 235, 0.3);
+
+    /* Secondary Colors */
+    --secondary: #667eea;
+    --secondary-dark: #5a67d8;
+    --accent: #764ba2;
+
+    /* Neutral Colors */
+    --dark: #1f2937;
+    --dark-light: #374151;
+    --gray-900: #111827;
+    --gray-800: #1f2937;
+    --gray-700: #374151;
+    --gray-600: #4b5563;
+    --gray-500: #6b7280;
+    --gray-400: #9ca3af;
+    --gray-300: #d1d5db;
+    --gray-200: #e5e7eb;
+    --gray-100: #f3f4f6;
+    --gray-50: #f8f9fa;
+    --white: #ffffff;
+    --text: #333333;
+    --text-light: #4b5563;
+
+    /* Status Colors */
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    --whatsapp: #25D366;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-primary: linear-gradient(90deg, #2563eb, #667eea);
+    --gradient-skill: linear-gradient(135deg, #2563eb, #667eea);
+    --gradient-stat: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 5px 20px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+    --shadow-nav: 0 2px 20px rgba(0, 0, 0, 0.12);
+    --shadow-glow: 0 10px 25px rgba(37, 99, 235, 0.3);
+
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius: 10px;
+    --radius-lg: 15px;
+    --radius-xl: 20px;
+    --radius-full: 50px;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* Spacing */
+    --section-padding: 80px;
+}
+
+/* ===== Reset and Base Styles ===== */
 * {
     margin: 0;
     padding: 0;
@@ -7,13 +74,14 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-snap-type: y proximity;
 }
 
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
+    color: var(--text);
+    background-color: var(--gray-50);
     overflow-x: hidden;
 }
 
@@ -221,14 +289,14 @@ body {
 }
 
 .btn-primary {
-    background: #2563eb;
-    color: white;
+    background: var(--primary);
+    color: var(--white);
 }
 
 .btn-primary:hover {
-    background: #1d4ed8;
+    background: var(--primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+    box-shadow: var(--shadow-glow);
 }
 
 .btn-secondary {
@@ -245,13 +313,13 @@ body {
 
 .btn-outline {
     background: transparent;
-    color: #2563eb;
-    border: 2px solid #2563eb;
+    color: var(--primary);
+    border: 2px solid var(--primary);
     padding: 12px 24px;
-    border-radius: 50px;
+    border-radius: var(--radius-full);
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.3s ease;
+    transition: var(--transition);
     cursor: pointer;
     display: inline-flex;
     align-items: center;
@@ -259,10 +327,10 @@ body {
 }
 
 .btn-outline:hover {
-    background: #2563eb;
-    color: white;
+    background: var(--primary);
+    color: var(--white);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+    box-shadow: var(--shadow-glow);
 }
 
 .profile-card {
@@ -366,7 +434,7 @@ section {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 3rem;
-    color: #1f2937;
+    color: var(--dark);
     position: relative;
 }
 
@@ -378,7 +446,7 @@ section {
     transform: translateX(-50%);
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, #2563eb, #667eea);
+    background: var(--gradient-primary);
     border-radius: 2px;
 }
 
@@ -470,12 +538,12 @@ section {
 }
 
 .timeline-content {
-    background: white;
+    background: var(--white);
     padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
     position: relative;
-    transition: transform 0.3s ease;
+    transition: var(--transition);
 }
 
 .timeline-content:hover {
@@ -590,18 +658,18 @@ section {
 }
 
 .skill-tag {
-    background: linear-gradient(135deg, #2563eb, #667eea);
-    color: white;
+    background: var(--gradient-skill);
+    color: var(--white);
     padding: 0.5rem 1rem;
     border-radius: 25px;
     font-size: 0.9rem;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 .skill-tag:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+    box-shadow: var(--shadow-glow);
 }
 
 /* Education Section */
@@ -617,11 +685,11 @@ section {
 }
 
 .education-item {
-    background: white;
+    background: var(--white);
     padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
 }
 
 .education-item:hover {
@@ -691,14 +759,14 @@ section {
 }
 
 .cert-item {
-    background: white;
+    background: var(--white);
     padding: 1rem 1.5rem;
-    border-radius: 10px;
+    border-radius: var(--radius);
     display: flex;
     align-items: center;
     gap: 1rem;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
 }
 
 .cert-item:hover {
@@ -722,17 +790,17 @@ section {
 }
 
 .project-card {
-    background: white;
-    border-radius: 15px;
+    background: var(--white);
+    border-radius: var(--radius-lg);
     padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    border: 1px solid #e5e7eb;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+    border: 1px solid var(--gray-200);
 }
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-xl);
 }
 
 .project-header {
@@ -845,8 +913,8 @@ section {
 .contact-item i {
     width: 50px;
     height: 50px;
-    background: #2563eb;
-    color: white;
+    background: var(--primary);
+    color: var(--white);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -891,10 +959,10 @@ section {
 }
 
 .contact-form {
-    background: white;
+    background: var(--white);
     padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
 }
 
 .contact-form h3 {
@@ -1369,11 +1437,11 @@ section {
 }
 
 .testimonial-card {
-    background: white;
+    background: var(--white);
     padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
     position: relative;
     overflow: hidden;
 }
@@ -1525,19 +1593,19 @@ section {
 }
 
 .network-card {
-    background: white;
+    background: var(--white);
     padding: 40px 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: var(--transition);
     border: 2px solid transparent;
 }
 
 .network-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    border-color: #2563eb;
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary);
 }
 
 .network-icon {
@@ -1576,8 +1644,8 @@ section {
 }
 
 .network-link {
-    background: #2563eb;
-    color: white;
+    background: var(--primary);
+    color: var(--white);
     padding: 12px 25px;
     border-radius: 25px;
     text-decoration: none;
@@ -1585,11 +1653,11 @@ section {
     align-items: center;
     gap: 8px;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: var(--transition);
 }
 
 .network-link:hover {
-    background: #1e40af;
+    background: var(--primary-dark);
     transform: translateY(-2px);
 }
 
@@ -1748,8 +1816,8 @@ section {
     right: 30px;
     width: 50px;
     height: 50px;
-    background: #2563eb;
-    color: white;
+    background: var(--primary);
+    color: var(--white);
     border: none;
     border-radius: 50%;
     cursor: pointer;
@@ -1757,13 +1825,13 @@ section {
     align-items: center;
     justify-content: center;
     font-size: 1.2rem;
-    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-    transition: all 0.3s ease;
+    box-shadow: var(--shadow-glow);
+    transition: var(--transition);
     z-index: 1000;
 }
 
 .back-to-top:hover {
-    background: #1e40af;
+    background: var(--primary-dark);
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
 }
@@ -2224,5 +2292,338 @@ section.visible, .services-list.visible, .testimonials-grid.visible, .projects-g
 @media (max-width: 480px) {
     .project-links:has(.btn:only-child) .btn {
         max-width: 100%;
+    }
+}
+
+/* ===== Enhanced Focus States for Accessibility ===== */
+/* Focus-visible for keyboard navigation (not mouse clicks) */
+.btn:focus-visible,
+.nav-link:focus-visible,
+.social-link:focus-visible,
+.social-link-hero:focus-visible,
+.network-link:focus-visible,
+.project-card:focus-visible,
+.contact-item:focus-visible {
+    outline: 3px solid var(--primary-light);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.15);
+}
+
+/* Form inputs focus-visible */
+.form-group input:focus-visible,
+.form-group textarea:focus-visible,
+.form-group select:focus-visible {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+/* Card focus states */
+.skill-tag:focus-visible,
+.tech-badge:focus-visible,
+.cert-item:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Keyboard navigation indicator */
+body.keyboard-nav *:focus {
+    outline: 3px solid var(--primary-light) !important;
+    outline-offset: 3px !important;
+}
+
+/* ===== Button Active/Pressed States ===== */
+.btn:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:active {
+    background: var(--primary-dark);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:active {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.btn-outline:active {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* Ripple effect on buttons */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s, height 0.5s, opacity 0.5s;
+}
+
+.btn:active::after {
+    width: 250px;
+    height: 250px;
+    opacity: 0;
+}
+
+/* ===== Scroll Snap for Sections ===== */
+section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+}
+
+.hero {
+    scroll-snap-align: start;
+}
+
+/* ===== Dark Mode Support ===== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text: #f3f4f6;
+        --text-light: #d1d5db;
+        --gray-50: #1f2937;
+        --gray-100: #374151;
+        --gray-200: #4b5563;
+        --gray-300: #6b7280;
+        --gray-400: #9ca3af;
+        --gray-500: #d1d5db;
+        --gray-600: #e5e7eb;
+        --gray-700: #f3f4f6;
+        --gray-800: #f9fafb;
+        --dark: #f9fafb;
+        --dark-light: #f3f4f6;
+        --white: #111827;
+    }
+
+    body {
+        background-color: #0f172a;
+        color: var(--text);
+    }
+
+    /* Navigation */
+    .navbar {
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px);
+    }
+
+    .nav-logo h2,
+    .nav-logo h2 a {
+        color: var(--primary-light);
+    }
+
+    .nav-link {
+        color: var(--text);
+    }
+
+    .nav-more-menu {
+        background: #1e293b;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-more-menu li a {
+        color: var(--text);
+    }
+
+    .nav-more-menu li a:hover {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Sections */
+    .about,
+    .skills,
+    .projects,
+    .networks {
+        background: #111827;
+    }
+
+    .experience,
+    .education,
+    .contact,
+    .testimonials {
+        background: #0f172a;
+    }
+
+    /* Cards */
+    .timeline-content,
+    .education-item,
+    .project-card,
+    .cert-item,
+    .contact-form,
+    .testimonial-card,
+    .network-card {
+        background: #1e293b;
+        border-color: #374151;
+    }
+
+    .stat-item {
+        background: linear-gradient(135deg, #1e293b, #374151);
+    }
+
+    /* Text colors */
+    .section-title,
+    .timeline-header h3,
+    .project-header h3,
+    .education-header h3,
+    .network-card h3,
+    .contact-item h4 {
+        color: var(--text);
+    }
+
+    .about-text p,
+    .project-description,
+    .timeline-details li,
+    .network-card p,
+    .testimonial-text {
+        color: var(--text-light);
+    }
+
+    /* Badges and tags */
+    .tech-badge,
+    .tech-tag,
+    .project-type,
+    .project-features span {
+        background: #374151;
+        color: #93c5fd;
+    }
+
+    .skill-tag {
+        background: linear-gradient(135deg, #1e40af, #4338ca);
+    }
+
+    /* Form inputs */
+    .form-group input,
+    .form-group textarea {
+        background: #1e293b;
+        border-color: #374151;
+        color: var(--text);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+        color: #6b7280;
+    }
+
+    /* Timeline */
+    .timeline::before {
+        background: var(--primary);
+    }
+
+    /* Breadcrumb */
+    .breadcrumb-nav {
+        background: #1e293b;
+        border-color: #374151;
+    }
+
+    .breadcrumb a {
+        color: var(--primary-light);
+    }
+
+    /* Social links */
+    .social-link {
+        background: #1e293b;
+        color: var(--primary-light);
+    }
+
+    /* Footer - keep dark as it already is */
+    .footer {
+        background: #0f172a;
+    }
+
+    /* Freelance section gradient adjustment */
+    .freelance {
+        background: linear-gradient(135deg, #1e40af 0%, #3730a3 100%);
+    }
+
+    .freelance-stat {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Services section */
+    .services {
+        background: #0f172a;
+    }
+
+    .service-card {
+        background: #1e293b;
+        border-color: #374151;
+    }
+
+    .service-card.featured {
+        border-color: #3776ab;
+        background: linear-gradient(135deg, #1e293b 80%, #1e3a5f 100%);
+    }
+
+    /* Contact icons */
+    .contact-item i {
+        background: var(--primary);
+    }
+}
+
+/* ===== Reduced Motion Preference ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    html {
+        scroll-snap-type: none;
+    }
+
+    .scroll-indicator,
+    [data-aos] {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ===== Touch Device Optimizations ===== */
+@media (hover: none) and (pointer: coarse) {
+    /* Disable hover transforms on touch */
+    .btn:hover,
+    .project-card:hover,
+    .timeline-content:hover,
+    .stat-item:hover,
+    .education-item:hover,
+    .cert-item:hover,
+    .skill-tag:hover,
+    .social-link:hover,
+    .social-link-hero:hover {
+        transform: none;
+    }
+
+    /* Larger touch targets */
+    .btn {
+        min-height: 48px;
+        padding: 14px 28px;
+    }
+
+    .nav-link {
+        padding: 12px 8px;
+    }
+
+    /* Better tap feedback */
+    .btn:active,
+    .nav-link:active,
+    .social-link:active {
+        transform: scale(0.97);
+        opacity: 0.9;
     }
 }
