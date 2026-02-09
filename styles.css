@@ -122,7 +122,12 @@ body {
     z-index: 1000;
     padding: 1rem 0;
     box-shadow: var(--shadow-nav);
-    transition: all var(--transition);
+    transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
 }
 
 .nav-container {
@@ -2034,6 +2039,46 @@ section {
     box-shadow: 0 2px 8px rgba(37, 99, 235, 0.13);
 }
 
+/* Service Process Section */
+.service-process {
+    background: var(--gray-50);
+    padding: 80px 0;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.process-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    color: var(--text);
+}
+
+.process-card p {
+    color: var(--text-light);
+}
+
+.process-step {
+    width: 60px;
+    height: 60px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 /* WhatsApp Button */
 .btn-success, .btn-success:visited {
     background: var(--whatsapp);
@@ -2467,10 +2512,24 @@ section {
 
 /* Content card (replaces inline white box styles) */
 .content-card {
-    background: white;
+    background: var(--white);
     padding: 2rem;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    color: var(--text);
+}
+
+.content-card p {
+    color: var(--text-light);
+}
+
+.content-card-center {
+    text-align: center;
+}
+
+/* White section background */
+.section-white {
+    background: var(--white);
 }
 
 /* Avatar circle */
@@ -2542,6 +2601,11 @@ section {
 [data-theme="dark"] .navbar {
     background: rgba(15, 23, 42, 0.95);
     backdrop-filter: blur(10px);
+}
+
+[data-theme="dark"] .navbar.scrolled {
+    background: rgba(15, 23, 42, 0.98);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
 }
 
 [data-theme="dark"] .nav-logo h2,
@@ -2690,6 +2754,12 @@ section {
 [data-theme="dark"] .service-card.featured {
     border-color: #3776ab;
     background: linear-gradient(135deg, #1e293b 80%, #1e3a5f 100%);
+}
+
+/* Process cards */
+[data-theme="dark"] .process-card {
+    background: #1e293b;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Contact icons */
