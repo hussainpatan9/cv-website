@@ -338,10 +338,10 @@
                 <li role="none"><a href="projects.html" class="nav-link" role="menuitem">Projects</a></li>
                 <li role="none"><a href="testimonials.html" class="nav-link" role="menuitem">Reviews</a></li>
                 <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
-                <li role="none"><a href="contact.html" class="nav-link" style="font-weight:700;color:#ff7a59;border-radius:999px;padding:6px 10px;" role="menuitem">Hire</a></li>
+                <li role="none"><a href="contact.html" class="nav-link nav-hire" role="menuitem">Hire</a></li>
                 <li class="nav-more" role="none">
-                    <button class="nav-more-toggle" aria-haspopup="true" aria-expanded="false" aria-label="More">More ▾</button>
-                    <ul class="nav-more-menu" role="menu" aria-label="More links">
+                    <button class="nav-more-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="nav-more-menu" aria-label="More">More ▾</button>
+                    <ul id="nav-more-menu" class="nav-more-menu" role="menu" aria-label="More links">
                         <li role="none"><a role="menuitem" href="index.html">Full CV</a></li>
                         <li role="none"><a role="menuitem" href="about.html">About</a></li>
                         <li role="none"><a role="menuitem" href="freelance.html">Freelance</a></li>
@@ -379,7 +379,7 @@
     </nav>
 
     <!-- Services Hero Section -->
-    <section class="services-hero" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 120px 0 80px; text-align: center;">
+    <section class="services-hero page-hero">
         <div class="container">
             <h1 style="font-size: 3rem; font-weight: 700; margin-bottom: 1rem;">Professional QA Services</h1>
             <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto 2rem;">
@@ -387,10 +387,10 @@
                 Delivering high-quality solutions with 4+ years of experience and 144+ successful projects.
             </p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="#services" class="btn btn-primary" style="background: white; color: #2563eb;">
+                <a href="#services" class="btn btn-primary btn-inverted">
                     <i class="fas fa-cogs"></i> View Services
                 </a>
-                <a href="contact.html" class="btn btn-outline" style="border-color: white; color: white;">
+                <a href="contact.html" class="btn btn-outline btn-ghost">
                     <i class="fas fa-paper-plane"></i> Get Quote
                 </a>
             </div>
@@ -407,13 +407,13 @@
                     <i class="fas fa-vial" aria-hidden="true"></i>
                     <h3>QA Automation</h3>
                     <p>End-to-end automation using Selenium, Playwright, Cypress, and custom frameworks.</p>
-                    <div class="service-details" style="margin-top: 1rem; padding: 1rem; background: #f8f9fa; border-radius: 10px;">
-                        <h4 style="color: #2563eb; margin-bottom: 0.5rem;">What's Included:</h4>
+                    <div class="service-details" style="margin-top: 1rem; padding: 1rem; background: var(--gray-50); border-radius: 10px;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What's Included:</h4>
                         <ul style="list-style: none; padding: 0;">
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Test framework design and implementation</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Cross-browser and cross-platform testing</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>CI/CD integration</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Test reporting and analytics</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Test framework design and implementation</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Cross-browser and cross-platform testing</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>CI/CD integration</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Test reporting and analytics</li>
                         </ul>
                     </div>
                     <a href="qa-automation.html" class="learn-more-link" aria-label="Learn more about this service">Get Started</a>
@@ -423,13 +423,13 @@
                     <i class="fas fa-bug" aria-hidden="true"></i>
                     <h3>Manual Testing</h3>
                     <p>Comprehensive manual testing for web, mobile, and API applications.</p>
-                    <div class="service-details" style="margin-top: 1rem; padding: 1rem; background: #f8f9fa; border-radius: 10px;">
-                        <h4 style="color: #2563eb; margin-bottom: 0.5rem;">What's Included:</h4>
+                    <div class="service-details" style="margin-top: 1rem; padding: 1rem; background: var(--gray-50); border-radius: 10px;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What's Included:</h4>
                         <ul style="list-style: none; padding: 0;">
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Functional and regression testing</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>User acceptance testing (UAT)</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Mobile app testing (iOS/Android)</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Usability and accessibility testing</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Functional and regression testing</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>User acceptance testing (UAT)</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Mobile app testing (iOS/Android)</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Usability and accessibility testing</li>
                         </ul>
                     </div>
                     <a href="contact.html" class="learn-more-link" aria-label="Learn more about this service">Get Started</a>
@@ -439,13 +439,13 @@
                     <i class="fas fa-code" aria-hidden="true"></i>
                     <h3>API Testing</h3>
                     <p>REST and GraphQL API testing with Postman, Newman, and custom scripts.</p>
-                    <div class="service-details" style="margin-top: 1rem; padding: 1rem; background: #f8f9fa; border-radius: 10px;">
-                        <h4 style="color: #2563eb; margin-bottom: 0.5rem;">What's Included:</h4>
+                    <div class="service-details" style="margin-top: 1rem; padding: 1rem; background: var(--gray-50); border-radius: 10px;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What's Included:</h4>
                         <ul style="list-style: none; padding: 0;">
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>API endpoint validation</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Request/response testing</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Authentication and authorization testing</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Performance and load testing</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>API endpoint validation</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Request/response testing</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Authentication and authorization testing</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Performance and load testing</li>
                         </ul>
                     </div>
                     <a href="contact.html" class="learn-more-link" aria-label="Learn more about this service">Get Started</a>
@@ -455,13 +455,13 @@
                     <i class="fas fa-chart-line" aria-hidden="true"></i>
                     <h3>Performance Testing</h3>
                     <p>Load and stress testing using JMeter and custom tools.</p>
-                    <div class="service-details" style="margin-top: 1rem; padding: 1rem; background: #f8f9fa; border-radius: 10px;">
-                        <h4 style="color: #2563eb; margin-bottom: 0.5rem;">What's Included:</h4>
+                    <div class="service-details" style="margin-top: 1rem; padding: 1rem; background: var(--gray-50); border-radius: 10px;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What's Included:</h4>
                         <ul style="list-style: none; padding: 0;">
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Load testing and stress testing</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Performance monitoring and analysis</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Bottleneck identification</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Performance optimization recommendations</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Load testing and stress testing</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Performance monitoring and analysis</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Bottleneck identification</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Performance optimization recommendations</li>
                         </ul>
                     </div>
                     <a href="contact.html" class="learn-more-link" aria-label="Learn more about this service">Get Started</a>
@@ -471,13 +471,13 @@
                     <i class="fas fa-database" aria-hidden="true"></i>
                     <h3>Data & ETL Testing</h3>
                     <p>Data validation, migration, and ETL pipeline testing for accuracy and integrity.</p>
-                    <div class="service-details" style="margin-top: 1rem; padding: 1rem; background: #f8f9fa; border-radius: 10px;">
-                        <h4 style="color: #2563eb; margin-bottom: 0.5rem;">What's Included:</h4>
+                    <div class="service-details" style="margin-top: 1rem; padding: 1rem; background: var(--gray-50); border-radius: 10px;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What's Included:</h4>
                         <ul style="list-style: none; padding: 0;">
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Data quality assessment</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>ETL pipeline validation</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Data migration testing</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Data integrity verification</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Data quality assessment</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>ETL pipeline validation</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Data migration testing</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Data integrity verification</li>
                         </ul>
                     </div>
                     <a href="contact.html" class="learn-more-link" aria-label="Learn more about this service">Get Started</a>
@@ -487,13 +487,13 @@
                     <i class="fas fa-shield-alt" aria-hidden="true"></i>
                     <h3>Test Strategy & Consulting</h3>
                     <p>Test planning, process improvement, and QA consulting for startups and enterprises.</p>
-                    <div class="service-details" style="margin-top: 1rem; padding: 1rem; background: #f8f9fa; border-radius: 10px;">
-                        <h4 style="color: #2563eb; margin-bottom: 0.5rem;">What's Included:</h4>
+                    <div class="service-details" style="margin-top: 1rem; padding: 1rem; background: var(--gray-50); border-radius: 10px;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What's Included:</h4>
                         <ul style="list-style: none; padding: 0;">
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Test strategy development</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>QA process optimization</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Team training and mentoring</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Quality metrics implementation</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Test strategy development</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>QA process optimization</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Team training and mentoring</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Quality metrics implementation</li>
                         </ul>
                     </div>
                     <a href="contact.html" class="learn-more-link" aria-label="Learn more about this service">Get Started</a>
@@ -503,8 +503,8 @@
                     <i class="fab fa-js" aria-hidden="true"></i>
                     <h3>Modern Web Development</h3>
                     <p>Enterprise-grade web applications with Next.js 14, TypeScript, and modern architecture.</p>
-                    <div class="service-details" style="margin-top: 1rem; padding: 1rem; background: #f8f9fa; border-radius: 10px;">
-                        <h4 style="color: #2563eb; margin-bottom: 0.5rem;">Specialized Services:</h4>
+                    <div class="service-details" style="margin-top: 1rem; padding: 1rem; background: var(--gray-50); border-radius: 10px;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Specialized Services:</h4>
                         <ul>
                             <li>Next.js 14 applications with App Router</li>
                             <li>TypeScript & React 18 development</li>
@@ -522,13 +522,13 @@
                     <i class="fab fa-python" aria-hidden="true"></i>
                     <h3>Python Scripting</h3>
                     <p>Custom automation scripts for web, data, and file processing with advanced capabilities.</p>
-                    <div class="service-details" style="margin-top: 1rem; padding: 1rem; background: #f8f9fa; border-radius: 10px;">
-                        <h4 style="color: #2563eb; margin-bottom: 0.5rem;">What's Included:</h4>
+                    <div class="service-details" style="margin-top: 1rem; padding: 1rem; background: var(--gray-50); border-radius: 10px;">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">What's Included:</h4>
                         <ul style="list-style: none; padding: 0;">
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Custom automation scripts</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Web scraping & data processing</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>ETL pipelines & API integration</li>
-                            <li><i class="fas fa-check" style="color: #10b981; margin-right: 0.5rem;"></i>Script optimization & deployment</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Custom automation scripts</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Web scraping & data processing</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>ETL pipelines & API integration</li>
+                            <li><i class="fas fa-check" style="color: var(--success); margin-right: 0.5rem;"></i>Script optimization & deployment</li>
                         </ul>
                     </div>
                     <a href="contact.html" class="learn-more-link" aria-label="Learn more about this service">Get Started</a>
@@ -538,22 +538,22 @@
     </section>
 
     <!-- Service Process Section -->
-    <section class="service-process" style="background: #f8f9fa; padding: 80px 0;">
+    <section class="service-process" style="background: var(--gray-50); padding: 80px 0;">
         <div class="container">
             <h2 class="section-title">How I Work</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
                 <div style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <div style="width: 60px; height: 60px; background: #2563eb; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.5rem; font-weight: bold;">1</div>
+                    <div style="width: 60px; height: 60px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.5rem; font-weight: bold;">1</div>
                     <h3>Discovery & Planning</h3>
                     <p>Understanding your requirements, project scope, and defining the testing strategy.</p>
                 </div>
                 <div style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <div style="width: 60px; height: 60px; background: #2563eb; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.5rem; font-weight: bold;">2</div>
+                    <div style="width: 60px; height: 60px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.5rem; font-weight: bold;">2</div>
                     <h3>Development & Testing</h3>
                     <p>Building automation frameworks, writing test scripts, and implementing solutions.</p>
                 </div>
                 <div style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <div style="width: 60px; height: 60px; background: #2563eb; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.5rem; font-weight: bold;">3</div>
+                    <div style="width: 60px; height: 60px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: white; font-size: 1.5rem; font-weight: bold;">3</div>
                     <h3>Delivery & Support</h3>
                     <p>Delivering the solution, providing documentation, and ongoing support.</p>
                 </div>
@@ -566,36 +566,36 @@
         <div class="container">
             <h2 class="section-title">Technologies & Tools</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
-                <div style="text-align: center; padding: 1.5rem; border: 1px solid #e5e7eb; border-radius: 10px;">
-                    <i class="fab fa-react" style="font-size: 2.5rem; color: #61dafb; margin-bottom: 1rem;"></i>
+                <div style="text-align: center; padding: 1.5rem; border: 1px solid var(--gray-200); border-radius: 10px;">
+                    <i class="fab fa-react" style="font-size: 2.5rem; color: var(--react); margin-bottom: 1rem;"></i>
                     <h4>Next.js 14</h4>
                 </div>
-                <div style="text-align: center; padding: 1.5rem; border: 1px solid #e5e7eb; border-radius: 10px;">
-                    <i class="fab fa-js" style="font-size: 2.5rem; color: #f7df1e; margin-bottom: 1rem;"></i>
+                <div style="text-align: center; padding: 1.5rem; border: 1px solid var(--gray-200); border-radius: 10px;">
+                    <i class="fab fa-js" style="font-size: 2.5rem; color: var(--js-yellow); margin-bottom: 1rem;"></i>
                     <h4>TypeScript</h4>
                 </div>
-                <div style="text-align: center; padding: 1.5rem; border: 1px solid #e5e7eb; border-radius: 10px;">
-                    <i class="fab fa-python" style="font-size: 2.5rem; color: #3776ab; margin-bottom: 1rem;"></i>
+                <div style="text-align: center; padding: 1.5rem; border: 1px solid var(--gray-200); border-radius: 10px;">
+                    <i class="fab fa-python" style="font-size: 2.5rem; color: var(--python-blue); margin-bottom: 1rem;"></i>
                     <h4>Python</h4>
                 </div>
-                <div style="text-align: center; padding: 1.5rem; border: 1px solid #e5e7eb; border-radius: 10px;">
-                    <i class="fas fa-code" style="font-size: 2.5rem; color: #f7df1e; margin-bottom: 1rem;"></i>
+                <div style="text-align: center; padding: 1.5rem; border: 1px solid var(--gray-200); border-radius: 10px;">
+                    <i class="fas fa-code" style="font-size: 2.5rem; color: var(--js-yellow); margin-bottom: 1rem;"></i>
                     <h4>JavaScript</h4>
                 </div>
-                <div style="text-align: center; padding: 1.5rem; border: 1px solid #e5e7eb; border-radius: 10px;">
-                    <i class="fab fa-java" style="font-size: 2.5rem; color: #ed8b00; margin-bottom: 1rem;"></i>
+                <div style="text-align: center; padding: 1.5rem; border: 1px solid var(--gray-200); border-radius: 10px;">
+                    <i class="fab fa-java" style="font-size: 2.5rem; color: var(--java); margin-bottom: 1rem;"></i>
                     <h4>Java</h4>
                 </div>
-                <div style="text-align: center; padding: 1.5rem; border: 1px solid #e5e7eb; border-radius: 10px;">
-                    <i class="fas fa-database" style="font-size: 2.5rem; color: #4479a1; margin-bottom: 1rem;"></i>
+                <div style="text-align: center; padding: 1.5rem; border: 1px solid var(--gray-200); border-radius: 10px;">
+                    <i class="fas fa-database" style="font-size: 2.5rem; color: var(--sql); margin-bottom: 1rem;"></i>
                     <h4>SQL</h4>
                 </div>
-                <div style="text-align: center; padding: 1.5rem; border: 1px solid #e5e7eb; border-radius: 10px;">
-                    <i class="fab fa-aws" style="font-size: 2.5rem; color: #ff9900; margin-bottom: 1rem;"></i>
+                <div style="text-align: center; padding: 1.5rem; border: 1px solid var(--gray-200); border-radius: 10px;">
+                    <i class="fab fa-aws" style="font-size: 2.5rem; color: var(--aws); margin-bottom: 1rem;"></i>
                     <h4>AWS</h4>
                 </div>
-                <div style="text-align: center; padding: 1.5rem; border: 1px solid #e5e7eb; border-radius: 10px;">
-                    <i class="fab fa-docker" style="font-size: 2.5rem; color: #2496ed; margin-bottom: 1rem;"></i>
+                <div style="text-align: center; padding: 1.5rem; border: 1px solid var(--gray-200); border-radius: 10px;">
+                    <i class="fab fa-docker" style="font-size: 2.5rem; color: var(--docker); margin-bottom: 1rem;"></i>
                     <h4>Docker</h4>
                 </div>
             </div>
@@ -603,17 +603,17 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="services-cta" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 0; text-align: center;">
+    <section class="services-cta cta-gradient">
         <div class="container">
             <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Ready to Get Started?</h2>
             <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
                 Let's discuss your project requirements and how I can help you achieve your quality goals.
             </p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="contact.html" class="btn btn-primary" style="background: white; color: #2563eb;">
+                <a href="contact.html" class="btn btn-primary btn-inverted">
                     <i class="fas fa-paper-plane"></i> Get Free Quote
                 </a>
-                <a href="https://wa.me/447825827424" class="btn btn-outline" style="border-color: white; color: white;" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/447825827424" class="btn btn-outline btn-ghost" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-whatsapp"></i> Quick Chat
                 </a>
             </div>

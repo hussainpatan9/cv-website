@@ -160,10 +160,10 @@
                 <li role="none"><a href="projects.html" class="nav-link" role="menuitem">Projects</a></li>
                 <li role="none"><a href="testimonials.html" class="nav-link" role="menuitem">Reviews</a></li>
                 <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
-                <li role="none"><a href="contact.html" class="nav-link" style="font-weight:700;color:#ff7a59;border-radius:999px;padding:6px 10px;" role="menuitem">Hire</a></li>
+                <li role="none"><a href="contact.html" class="nav-link nav-hire" role="menuitem">Hire</a></li>
                 <li class="nav-more" role="none">
-                    <button class="nav-more-toggle" aria-haspopup="true" aria-expanded="false" aria-label="More">More ▾</button>
-                    <ul class="nav-more-menu" role="menu" aria-label="More links">
+                    <button class="nav-more-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="nav-more-menu" aria-label="More">More ▾</button>
+                    <ul id="nav-more-menu" class="nav-more-menu" role="menu" aria-label="More links">
                         <li role="none"><a role="menuitem" href="index.html">Full CV</a></li>
                         <li role="none"><a role="menuitem" href="about.html">About</a></li>
                         <li role="none"><a role="menuitem" href="freelance.html">Freelance</a></li>
@@ -201,10 +201,10 @@
     </nav>
 
     <!-- Skills Hero Section -->
-    <section class="skills-hero" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 120px 0 80px; text-align: center;">
+    <section class="skills-hero page-hero">
         <div class="container">
             <h1 style="font-size: 3rem; font-weight: 700; margin-bottom: 1rem;">
-                <i class="fas fa-tools" style="color: #ffd700; margin-right: 0.5rem;"></i>
+                <i class="fas fa-tools star-gold" style="margin-right: 0.5rem;"></i>
                 Core Competencies
             </h1>
             <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto 2rem;">
@@ -212,10 +212,10 @@
                 and soft skills. Expert in Python scripting, Selenium, Cypress, and modern testing tools.
             </p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="#skills" class="btn btn-primary" style="background: white; color: #2563eb;">
+                <a href="#skills" class="btn btn-primary btn-inverted">
                     <i class="fas fa-list"></i> View Skills
                 </a>
-                <a href="contact.html" class="btn btn-outline" style="border-color: white; color: white;">
+                <a href="contact.html" class="btn btn-outline btn-ghost">
                     <i class="fas fa-paper-plane"></i> Get in Touch
                 </a>
             </div>
@@ -223,26 +223,26 @@
     </section>
 
     <!-- Skills Overview Section -->
-    <section class="skills-overview" style="background: #f8f9fa; padding: 60px 0;">
+    <section class="skills-overview" style="background: var(--gray-50); padding: 60px 0;">
         <div class="container">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
                 <div>
-                    <i class="fas fa-bug" style="font-size: 3rem; color: #2563eb; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-bug icon-feature primary"></i>
                     <h3>Testing & QA</h3>
                     <p>10+ specialized skills</p>
                 </div>
                 <div>
-                    <i class="fas fa-tools" style="font-size: 3rem; color: #3776ab; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-tools icon-feature python"></i>
                     <h3>Tools & Technologies</h3>
                     <p>20+ modern tools</p>
                 </div>
                 <div>
-                    <i class="fas fa-project-diagram" style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-project-diagram icon-feature success"></i>
                     <h3>Methodologies</h3>
                     <p>8+ proven methods</p>
                 </div>
                 <div>
-                    <i class="fas fa-users" style="font-size: 3rem; color: #f59e0b; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-users icon-feature warning"></i>
                     <h3>Soft Skills</h3>
                     <p>11+ interpersonal skills</p>
                 </div>
@@ -361,12 +361,12 @@
     </section>
 
     <!-- Skill Proficiency Section -->
-    <section class="skill-proficiency" style="background: #f8f9fa; padding: 80px 0;">
+    <section class="skill-proficiency" style="background: var(--gray-50); padding: 80px 0;">
         <div class="container">
             <h2 class="section-title">Skill Proficiency Levels</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
                 <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <h3 style="color: #2563eb; margin-bottom: 1rem;">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">
                         <i class="fas fa-star"></i> Expert Level
                     </h3>
                     <ul style="list-style: none; padding: 0;">
@@ -378,7 +378,7 @@
                     </ul>
                 </div>
                 <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <h3 style="color: #10b981; margin-bottom: 1rem;">
+                    <h3 style="color: var(--success); margin-bottom: 1rem;">
                         <i class="fas fa-star"></i> Advanced Level
                     </h3>
                     <ul style="list-style: none; padding: 0;">
@@ -390,7 +390,7 @@
                     </ul>
                 </div>
                 <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <h3 style="color: #f59e0b; margin-bottom: 1rem;">
+                    <h3 style="color: var(--warning); margin-bottom: 1rem;">
                         <i class="fas fa-star"></i> Proficient Level
                     </h3>
                     <ul style="list-style: none; padding: 0;">
@@ -411,27 +411,27 @@
             <h2 class="section-title">Technology Stack</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
                 <div style="text-align: center; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fab fa-js" style="font-size: 3rem; color: #f7df1e; margin-bottom: 1rem;"></i>
+                    <i class="fab fa-js icon-feature js"></i>
                     <h3>Modern Web</h3>
                     <p>Next.js 14, TypeScript, React 18, PWA</p>
                 </div>
                 <div style="text-align: center; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fab fa-python" style="font-size: 3rem; color: #3776ab; margin-bottom: 1rem;"></i>
+                    <i class="fab fa-python icon-feature python"></i>
                     <h3>Programming</h3>
                     <p>Python, Java, JavaScript, C/C++, SQL</p>
                 </div>
                 <div style="text-align: center; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fas fa-vial" style="font-size: 3rem; color: #2563eb; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-vial icon-feature primary"></i>
                     <h3>Testing Tools</h3>
                     <p>Selenium, Cypress, TestNG, Cucumber, Postman</p>
                 </div>
                 <div style="text-align: center; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fas fa-database" style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-database icon-feature success"></i>
                     <h3>Databases</h3>
                     <p>MySQL, MongoDB, SQL Server</p>
                 </div>
                 <div style="text-align: center; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fas fa-cloud" style="font-size: 3rem; color: #f59e0b; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-cloud icon-feature warning"></i>
                     <h3>Cloud & DevOps</h3>
                     <p>AWS, Jenkins, Git, Docker</p>
                 </div>
@@ -440,7 +440,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="skills-cta" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 0; text-align: center;">
+    <section class="skills-cta cta-gradient">
         <div class="container">
             <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Ready to Leverage These Skills?</h2>
             <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
@@ -448,10 +448,10 @@
                 I'm ready to bring comprehensive solutions to your projects.
             </p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="contact.html" class="btn btn-primary" style="background: white; color: #2563eb;">
+                <a href="contact.html" class="btn btn-primary btn-inverted">
                     <i class="fas fa-paper-plane"></i> Start a Project
                 </a>
-                <a href="https://www.fiverr.com/hussainpatan" class="btn btn-outline" style="border-color: white; color: white;" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.fiverr.com/hussainpatan" class="btn btn-outline btn-ghost" target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-external-link-alt"></i> Hire on Fiverr
                 </a>
             </div>

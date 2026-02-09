@@ -141,7 +141,7 @@
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2><a href="hero.html" style="color:inherit;text-decoration:none;">HK</a></h2>
+                <h2><a href="hero.html">HK</a></h2>
             </div>
             <ul class="nav-menu" role="menubar">
                 <li role="none"><a href="hero.html" class="nav-link" role="menuitem">Home</a></li>
@@ -149,10 +149,10 @@
                 <li role="none"><a href="projects.html" class="nav-link" role="menuitem">Projects</a></li>
                 <li role="none"><a href="testimonials.html" class="nav-link" role="menuitem">Reviews</a></li>
                 <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
-                <li role="none"><a href="contact.html" class="nav-link" style="font-weight:700;color:#ff7a59;border-radius:999px;padding:6px 10px;" role="menuitem">Hire</a></li>
+                <li role="none"><a href="contact.html" class="nav-link nav-hire" role="menuitem">Hire</a></li>
                 <li class="nav-more" role="none">
-                    <button class="nav-more-toggle" aria-haspopup="true" aria-expanded="false" aria-label="More">More ▾</button>
-                    <ul class="nav-more-menu" role="menu" aria-label="More links">
+                    <button class="nav-more-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="nav-more-menu" aria-label="More">More ▾</button>
+                    <ul id="nav-more-menu" class="nav-more-menu" role="menu" aria-label="More links">
                         <li role="none"><a role="menuitem" href="index.html">Full CV</a></li>
                         <li role="none"><a role="menuitem" href="about.html">About</a></li>
                         <li role="none"><a role="menuitem" href="freelance.html">Freelance</a></li>
@@ -190,10 +190,10 @@
     </nav>
 
     <!-- About Hero Section -->
-    <section class="about-hero" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 120px 0 80px; text-align: center;">
+    <section class="about-hero page-hero">
         <div class="container">
             <h1 style="font-size: 3rem; font-weight: 700; margin-bottom: 1rem;">
-                <i class="fas fa-user" style="color: #ffd700; margin-right: 0.5rem;"></i>
+                <i class="fas fa-user star-gold" style="margin-right: 0.5rem;"></i>
                 About Me
             </h1>
             <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto 2rem;">
@@ -201,10 +201,10 @@
                 in delivering high-quality software solutions. Expert in Selenium, Playwright, and Python.
             </p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="#about" class="btn btn-primary" style="background: white; color: #2563eb;">
+                <a href="#about" class="btn btn-primary btn-inverted">
                     <i class="fas fa-info-circle"></i> Learn More
                 </a>
-                <a href="contact.html" class="btn btn-outline" style="border-color: white; color: white;">
+                <a href="contact.html" class="btn btn-outline btn-ghost">
                     <i class="fas fa-paper-plane"></i> Get in Touch
                 </a>
             </div>
@@ -212,26 +212,26 @@
     </section>
 
     <!-- About Stats Section -->
-    <section class="about-stats-hero" style="background: #f8f9fa; padding: 60px 0;">
+    <section class="about-stats-hero" style="background: var(--gray-50); padding: 60px 0;">
         <div class="container">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
                 <div>
-                    <div style="font-size: 3rem; font-weight: bold; color: #2563eb; margin-bottom: 0.5rem;">4+</div>
+                    <div class="stat-hero-number">4+</div>
                     <h3>Years Experience</h3>
                     <p>Professional expertise</p>
                 </div>
                 <div>
-                    <div style="font-size: 3rem; font-weight: bold; color: #2563eb; margin-bottom: 0.5rem;">144+</div>
+                    <div class="stat-hero-number">144+</div>
                     <h3>Total Orders</h3>
                     <p>Successful deliveries</p>
                 </div>
                 <div>
-                    <div style="font-size: 3rem; font-weight: bold; color: #2563eb; margin-bottom: 0.5rem;">4.8★</div>
+                    <div class="stat-hero-number">4.8★</div>
                     <h3>Client Rating</h3>
                     <p>Top-rated freelancer</p>
                 </div>
                 <div>
-                    <div style="font-size: 3rem; font-weight: bold; color: #2563eb; margin-bottom: 0.5rem;">97</div>
+                    <div class="stat-hero-number">97</div>
                     <h3>Reviews</h3>
                     <p>Client testimonials</p>
                 </div>
@@ -287,22 +287,22 @@
     </section>
 
     <!-- Professional Journey Section -->
-    <section class="professional-journey" style="background: #f8f9fa; padding: 80px 0;">
+    <section class="professional-journey" style="background: var(--gray-50); padding: 80px 0;">
         <div class="container">
             <h2 class="section-title">My Professional Journey</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
                 <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fas fa-graduation-cap" style="font-size: 3rem; color: #2563eb; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-graduation-cap icon-feature primary"></i>
                     <h3>Education & Foundation</h3>
                     <p>Started with a strong academic foundation in Computer Science, earning both BSc and MSc degrees. Developed core programming skills and theoretical knowledge.</p>
                 </div>
                 <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fas fa-briefcase" style="font-size: 3rem; color: #3776ab; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-briefcase icon-feature python"></i>
                     <h3>Professional Growth</h3>
                     <p>Progressed from intern to senior QA engineer, gaining hands-on experience in testing methodologies, automation frameworks, and team collaboration.</p>
                 </div>
                 <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fas fa-star" style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-star icon-feature success"></i>
                     <h3>Freelance Success</h3>
                     <p>Established as a top-rated freelancer with 4.8★ rating, serving 144+ clients globally. Specialized in Python automation and custom solutions.</p>
                 </div>
@@ -316,22 +316,22 @@
             <h2 class="section-title">Core Values & Approach</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
                 <div style="text-align: center; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fas fa-lightbulb" style="font-size: 3rem; color: #2563eb; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-lightbulb icon-feature primary"></i>
                     <h3>Analytical Problem Solving</h3>
                     <p>Approach challenges systematically with data-driven analysis and innovative solutions</p>
                 </div>
                 <div style="text-align: center; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fas fa-comments" style="font-size: 3rem; color: #3776ab; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-comments icon-feature python"></i>
                     <h3>Clear Communication</h3>
                     <p>Maintain transparent communication with clients and stakeholders throughout projects</p>
                 </div>
                 <div style="text-align: center; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fas fa-sync-alt" style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-sync-alt icon-feature success"></i>
                     <h3>Adaptability</h3>
                     <p>Quickly adapt to new technologies and methodologies to stay ahead in the industry</p>
                 </div>
                 <div style="text-align: center; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fas fa-chart-line" style="font-size: 3rem; color: #f59e0b; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-chart-line icon-feature" style="color: var(--warning);"></i>
                     <h3>Continuous Learning</h3>
                     <p>Commit to ongoing professional development and staying current with industry trends</p>
                 </div>
@@ -340,7 +340,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="about-cta" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 0; text-align: center;">
+    <section class="about-cta cta-gradient">
         <div class="container">
             <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Ready to Work Together?</h2>
             <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
@@ -348,10 +348,10 @@
                 I'm ready to bring expertise and dedication to your next project.
             </p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="contact.html" class="btn btn-primary" style="background: white; color: #2563eb;">
+                <a href="contact.html" class="btn btn-primary btn-inverted">
                     <i class="fas fa-paper-plane"></i> Start a Project
                 </a>
-                <a href="https://www.fiverr.com/hussainpatan" class="btn btn-outline" style="border-color: white; color: white;" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.fiverr.com/hussainpatan" class="btn btn-outline btn-ghost" target="_blank" rel="noopener noreferrer">
                     <i class="fas fa-external-link-alt"></i> Hire on Fiverr
                 </a>
             </div>

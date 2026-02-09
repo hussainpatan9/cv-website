@@ -109,10 +109,10 @@
         <li role="none"><a href="projects.html" class="nav-link" role="menuitem">Projects</a></li>
         <li role="none"><a href="testimonials.html" class="nav-link" role="menuitem">Reviews</a></li>
         <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
-        <li role="none"><a href="contact.html" class="nav-link" style="font-weight:700;color:#ff7a59;border-radius:999px;padding:6px 10px;" role="menuitem">Hire</a></li>
+        <li role="none"><a href="contact.html" class="nav-link nav-hire" role="menuitem">Hire</a></li>
         <li class="nav-more" role="none">
-          <button class="nav-more-toggle" aria-haspopup="true" aria-expanded="false" aria-label="More">More ▾</button>
-          <ul class="nav-more-menu" role="menu" aria-label="More links">
+          <button class="nav-more-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="nav-more-menu" aria-label="More">More ▾</button>
+          <ul id="nav-more-menu" class="nav-more-menu" role="menu" aria-label="More links">
             <li role="none"><a role="menuitem" href="index.html">Full CV</a></li>
             <li role="none"><a role="menuitem" href="about.html">About</a></li>
             <li role="none"><a role="menuitem" href="freelance.html">Freelance</a></li>
@@ -139,7 +139,7 @@
       </div>
     </section>
 
-    <section id="benefits" style="background:#f8f9fa;">
+    <section id="benefits" style="background: var(--gray-50);">
       <div class="container">
         <h2 class="section-title">Benefits</h2>
         <ul>
@@ -177,7 +177,7 @@
       </div>
     </section>
 
-    <section id="case-study" style="background:#fff;">
+    <section id="case-study" style="background: white;">
       <div class="container">
         <h2 class="section-title">Case Study — Doc Extractor</h2>
         <p><strong>Problem:</strong> Manual regression testing slowed releases and caused missed bugs.</p>
@@ -188,7 +188,7 @@
     </section>
 
     <!-- Visible Testimonials (excerpted) -->
-    <section id="testimonials-excerpt" style="background:#f8f9fa;padding:40px 0;">
+    <section id="testimonials-excerpt" style="background: var(--gray-50);padding:40px 0;">
       <div class="container">
         <h2 class="section-title">What clients say</h2>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;">
@@ -214,7 +214,7 @@
       </div>
     </section>
 
-    <section id="cta" style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);color:white;">
+    <section id="cta" class="cta-gradient">
       <div class="container" style="text-align:center;padding:40px 0;">
         <h2>Ready to Automate?</h2>
         <p>Choose a package or book a short discovery call — I'll prepare a custom plan.</p>

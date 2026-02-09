@@ -274,10 +274,10 @@
                 <li role="none"><a href="projects.html" class="nav-link" role="menuitem">Projects</a></li>
                 <li role="none"><a href="testimonials.html" class="nav-link" role="menuitem">Reviews</a></li>
                 <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
-                <li role="none"><a href="contact.html" class="nav-link" style="font-weight:700;color:#ff7a59;border-radius:999px;padding:6px 10px;" role="menuitem">Hire</a></li>
+                <li role="none"><a href="contact.html" class="nav-link nav-hire" role="menuitem">Hire</a></li>
                 <li class="nav-more" role="none">
-                    <button class="nav-more-toggle" aria-haspopup="true" aria-expanded="false" aria-label="More">More ▾</button>
-                    <ul class="nav-more-menu" role="menu" aria-label="More links">
+                    <button class="nav-more-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="nav-more-menu" aria-label="More">More ▾</button>
+                    <ul id="nav-more-menu" class="nav-more-menu" role="menu" aria-label="More links">
                         <li role="none"><a role="menuitem" href="index.html">Full CV</a></li>
                         <li role="none"><a role="menuitem" href="about.html">About</a></li>
                         <li role="none"><a role="menuitem" href="freelance.html">Freelance</a></li>
@@ -315,10 +315,10 @@
     </nav>
 
     <!-- Projects Hero Section -->
-    <section class="projects-hero" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 120px 0 80px; text-align: center;">
+    <section class="projects-hero page-hero">
         <div class="container">
             <h1 style="font-size: 3rem; font-weight: 700; margin-bottom: 1rem;">
-                <i class="fas fa-code" style="color: #ffd700; margin-right: 0.5rem;"></i>
+                <i class="fas fa-code star-gold" style="margin-right: 0.5rem;"></i>
                 Key Projects & Portfolio
             </h1>
             <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto 2rem;">
@@ -326,10 +326,10 @@
                 and web applications. Each project demonstrates innovative solutions and measurable results.
             </p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="#projects" class="btn btn-primary" style="background: white; color: #2563eb;">
+                <a href="#projects" class="btn btn-primary btn-inverted">
                     <i class="fas fa-project-diagram"></i> View Projects
                 </a>
-                <a href="https://github.com/hussainpatan9" class="btn btn-outline" style="border-color: white; color: white;" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/hussainpatan9" class="btn btn-outline btn-ghost" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-github"></i> GitHub Profile
                 </a>
             </div>
@@ -337,26 +337,26 @@
     </section>
 
     <!-- Project Stats Section -->
-    <section class="project-stats" style="background: #f8f9fa; padding: 60px 0;">
+    <section class="project-stats" style="background: var(--gray-50); padding: 60px 0;">
         <div class="container">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
                 <div>
-                    <div style="font-size: 3rem; font-weight: bold; color: #2563eb; margin-bottom: 0.5rem;">6</div>
+                    <div class="stat-hero-number">6</div>
                     <h3>Featured Projects</h3>
                     <p>Diverse portfolio</p>
                 </div>
                 <div>
-                    <div style="font-size: 3rem; font-weight: bold; color: #2563eb; margin-bottom: 0.5rem;">50+</div>
+                    <div class="stat-hero-number">50+</div>
                     <h3>Tools Built</h3>
                     <p>NextUtils Platform</p>
                 </div>
                 <div>
-                    <div style="font-size: 3rem; font-weight: bold; color: #2563eb; margin-bottom: 0.5rem;">90+</div>
+                    <div class="stat-hero-number">90+</div>
                     <h3>Lighthouse Score</h3>
                     <p>Performance Excellence</p>
                 </div>
                 <div>
-                    <div style="font-size: 3rem; font-weight: bold; color: #2563eb; margin-bottom: 0.5rem;">8+</div>
+                    <div class="stat-hero-number">8+</div>
                     <h3>Technologies</h3>
                     <p>Modern Web Stack</p>
                 </div>
@@ -539,12 +539,12 @@
     </section>
 
     <!-- Project Categories Section -->
-    <section class="project-categories" style="background: #f8f9fa; padding: 80px 0;">
+    <section class="project-categories" style="background: var(--gray-50); padding: 80px 0;">
         <div class="container">
             <h2 class="section-title">Project Categories</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
                 <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fas fa-tools" style="font-size: 3rem; color: #2563eb; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-tools icon-feature primary"></i>
                     <h3>Full-Stack Web Development</h3>
                     <p>Enterprise-grade web applications with Next.js 14, TypeScript, and modern architecture. PWA capabilities and advanced SEO optimization.</p>
                     <div style="margin-top: 1rem;">
@@ -555,7 +555,7 @@
                     </div>
                 </div>
                 <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fas fa-brain" style="font-size: 3rem; color: #8b5cf6; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-brain icon-feature violet"></i>
                     <h3>AI & Machine Learning</h3>
                     <p>Deepfake detection with 97.12% accuracy using custom CNN models. Advanced computer vision and deep learning applications.</p>
                     <div style="margin-top: 1rem;">
@@ -566,7 +566,7 @@
                     </div>
                 </div>
                 <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fas fa-mobile-alt" style="font-size: 3rem; color: #3776ab; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-mobile-alt icon-feature python"></i>
                     <h3>Mobile Development</h3>
                     <p>Cross-platform mobile applications with object detection capabilities. Flutter-based solutions with real-time processing.</p>
                     <div style="margin-top: 1rem;">
@@ -577,7 +577,7 @@
                     </div>
                 </div>
                 <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fas fa-microchip" style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-microchip icon-feature success"></i>
                     <h3>Parallel Computing</h3>
                     <p>High-performance computing solutions using MPI and OpenMP. Performance analysis and optimization techniques.</p>
                     <div style="margin-top: 1rem;">
@@ -597,27 +597,27 @@
             <h2 class="section-title">Technology Stack Used</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
                 <div style="text-align: center; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fab fa-js" style="font-size: 3rem; color: #f7df1e; margin-bottom: 1rem;"></i>
+                    <i class="fab fa-js icon-feature js"></i>
                     <h3>Modern Web</h3>
                     <p>Next.js 14, TypeScript, React 18, PWA</p>
                 </div>
                 <div style="text-align: center; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fab fa-python" style="font-size: 3rem; color: #3776ab; margin-bottom: 1rem;"></i>
+                    <i class="fab fa-python icon-feature python"></i>
                     <h3>Programming</h3>
                     <p>Python, C++, JavaScript, Dart</p>
                 </div>
                 <div style="text-align: center; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fas fa-brain" style="font-size: 3rem; color: #8b5cf6; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-brain icon-feature violet"></i>
                     <h3>AI/ML</h3>
                     <p>TensorFlow, Keras, YOLOv5, CNN</p>
                 </div>
                 <div style="text-align: center; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fas fa-globe" style="font-size: 3rem; color: #10b981; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-globe icon-feature success"></i>
                     <h3>Web Development</h3>
                     <p>Django, React, HTML, CSS</p>
                 </div>
                 <div style="text-align: center; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-                    <i class="fas fa-cloud" style="font-size: 3rem; color: #f59e0b; margin-bottom: 1rem;"></i>
+                    <i class="fas fa-cloud icon-feature warning"></i>
                     <h3>DevOps</h3>
                     <p>Docker, Git, GitHub, CI/CD</p>
                 </div>
@@ -626,7 +626,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="projects-cta" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 0; text-align: center;">
+    <section class="projects-cta cta-gradient">
         <div class="container">
             <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Ready to Build Something Amazing?</h2>
             <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
@@ -634,10 +634,10 @@
                 I bring cutting-edge technical expertise and innovative solutions to every project.
             </p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="contact.html" class="btn btn-primary" style="background: white; color: #2563eb;">
+                <a href="contact.html" class="btn btn-primary btn-inverted">
                     <i class="fas fa-paper-plane"></i> Start a Project
                 </a>
-                <a href="https://github.com/hussainpatan9" class="btn btn-outline" style="border-color: white; color: white;" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/hussainpatan9" class="btn btn-outline btn-ghost" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-github"></i> View GitHub
                 </a>
             </div>
