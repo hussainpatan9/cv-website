@@ -1,4 +1,0 @@
-Contact: mailto:hussainkhuzema99@gmail.com
-Expires: 2025-12-31T23:59:59.000Z
-Preferred-Languages: en
-Canonical: https://hussainpatan9.github.io/cv-website/.well-known/security.txt

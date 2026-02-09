@@ -2,4 +2,7 @@ CONTACT-FORM-SETUP.md
 SEO-REPORT.md
 DEPLOYMENT-CHECKLIST.md
 deploy-guide.md
-QUICK-DEPLOY.md 
+QUICK-DEPLOY.md
+deploy.ps1
+indexnow-submit.ps1
+indexnow-setup.md 
