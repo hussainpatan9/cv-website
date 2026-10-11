@@ -5,6 +5,10 @@ A modern, accessible, and SEO-optimized CV website showcasing professional exper
 ## 🌐 Live Demo
 **[View Live CV Website](https://hussainpatan9.github.io/cv-website/)**
 
+## Website and business-software projects
+
+I also run [ScopeMotive](https://scopemotive.com/?utm_source=github&utm_medium=referral&utm_campaign=professional_profile&utm_content=cv_readme), a studio for e-commerce stores, B2B catalogue websites and custom ERP systems. Explore the studio's website for project examples and service details.
+
 ## 🌟 Features
 
 ### **Professional Sections**
